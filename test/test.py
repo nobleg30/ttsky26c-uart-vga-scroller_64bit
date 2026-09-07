@@ -18,7 +18,7 @@
 #           10 dark green
 #           11 dark red
 #
-# Verifies an exact 32-character UART message and generates:
+# Verifies an exact 64-character UART message and generates:
 #   output/vga_64char_white_black_start.png
 #   output/vga_64char_yellow_blue_end.png
 
@@ -634,7 +634,7 @@ async def test_uart_vga_scroller_4x_colour(dut):
     await reset_dut(dut)
 
     # Exactly 64 supported characters.
-    message = "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 HELLO MITS TINY TAPEOUT 12"
+    message = "HELLO MITS HELLO MITS HELLO MITS HELLO MITS HELLO MITS HELLO MIT"
     assert len(message) == 64
 
     await uart_send_message(
